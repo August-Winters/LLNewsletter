@@ -7,8 +7,8 @@ export default function LittleLemonHeader() {
                 flex: 0.2,
                 backgroundColor: '#F4CE14'
               }}>
-            <Text 
-                style={{ 
+            <Text
+                style={{
                     padding: 60,
                     fontSize: 30,
                     color: 'black',
