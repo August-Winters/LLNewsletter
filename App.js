@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 import LittleLemonHeader from './components/LittleLemonHeader';
 import LittleLemonFooter from './components/LittleLemonFooter';
@@ -12,7 +12,7 @@ export default function App() {
     <>
     <View style={styles.container}>
         <LittleLemonHeader/>
-        <LoginScreen/>
+        <WelcomeScreen/>
     </View>
     <View style={styles.footerContainer}>
         <LittleLemonFooter/>
