@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, ScrollView, TextInput, View, Image, useColorScheme } from 'react-native';
 
 export default function WelcomeScreen() {
-    const [firstName, onChangeFirstName] = useState('');
+   
     const colorScheme = useColorScheme();
   return (
     <ScrollView
@@ -11,8 +11,8 @@ export default function WelcomeScreen() {
     style={[
         styles.container,
         colorScheme === 'light'
-            ? { backgroundColor: '#fff'}
-            : { backgroundColor: '#333333'},
+            ? { backgroundColor: '#EDEFEE'}
+            : { backgroundColor: '#333333'}
     ]}>
     <View style={styles.headerWrapper}>
         <Image
