@@ -1,18 +1,19 @@
 import * as React from 'react';
-import { useState } from 'react';
 import { StyleSheet, Text, ScrollView, TextInput, View, Image, useColorScheme } from 'react-native';
 
 export default function WelcomeScreen() {
-   
+
     const colorScheme = useColorScheme();
+
   return (
+
     <ScrollView
     indicatorStyle="white"
     style={[
         styles.container,
         colorScheme === 'light'
-            ? { backgroundColor: '#EDEFEE'}
-            : { backgroundColor: '#333333'}
+            ? { backgroundColor: '#333333'}
+            : { backgroundColor: '#EDEFEE'}
     ]}>
     <View style={styles.headerWrapper}>
         <Image

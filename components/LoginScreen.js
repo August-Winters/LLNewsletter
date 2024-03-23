@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { ScrollView, Text, StyleSheet, TextInput, Pressable } from 'react-native';
 
-export default function LoginScreen( { navigation }) {
+export default function LoginScreen( { navigation } ) {
+
   const [email, onChangeEmail] = useState('');
   const [password, onChangePassword] = useState('');
-
 
   return (
 
