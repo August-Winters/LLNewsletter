@@ -6,23 +6,41 @@ import LittleLemonFooter from './components/LittleLemonFooter';
 import MenuItems from './components/MenuItems';
 import WelcomeScreen from './components/WelcomeScreen';
 import LoginScreen from './components/LoginScreen';
+
+
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-export default function App() {
+export default function App( {navigation}) {
   return (
     <>
       <NavigationContainer>
             <View style={styles.container}>
                 <LittleLemonHeader/>
-                <Stack.Navigator initialRouteName="Login">
-                    <Stack.Screen name="Welcome" component={WelcomeScreen}
-                    />
-                    <Stack.Screen name="Login" component={LoginScreen}
-                    />
-                </Stack.Navigator>
+                <Tab.Navigator
+                    screenOptions={({route}) => ({
+                        tabBarIcon: ({color, size}) => {
+                            let iconName;
+                            if (route.name === 'Welcome') {
+                                iconName = 'home'
+                            } else if (route.name === 'Login') {
+                                iconName = 'person';
+                            } else if (route.name === 'Menu') {
+                                iconName = 'menu';
+                            }
+                            return <Ionicons name={iconName} size={size} color={color} />;
+                        },
+                        tabBarActiveTintColor: 'green',
+                        tabBarInactiveTintColor: 'gray'
+                    })}
+                    initialRouteName="Welcome">
+                        <Tab.Screen name="Welcome" component={WelcomeScreen}/>
+                        <Tab.Screen name="Menu" component={MenuItems}/>
+                        <Tab.Screen name="Login" component={LoginScreen}/>
+                </Tab.Navigator>
             </View>
             <View style={styles.footerContainer}>
                 <LittleLemonFooter/>
@@ -39,6 +57,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#333333',
   },
   footerContainer: {
-    backgroundColor: '#333333',
+    backgroundColor: '#EDEFEE',
   },
 });

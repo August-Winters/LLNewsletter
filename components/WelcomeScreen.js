@@ -1,9 +1,13 @@
 import * as React from 'react';
-import { StyleSheet, Text, ScrollView, TextInput, View, Image, useColorScheme } from 'react-native';
+import { StyleSheet, Text, ScrollView, TextInput, View, Image, useColorScheme, Pressable } from 'react-native';
 
-export default function WelcomeScreen() {
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+export default function WelcomeScreen( {navigation}) {
 
     const colorScheme = useColorScheme();
+    const Tab = createBottomTabNavigator();
 
   return (
 
@@ -12,38 +16,40 @@ export default function WelcomeScreen() {
     style={[
         styles.container,
         colorScheme === 'light'
-            ? { backgroundColor: '#333333'}
-            : { backgroundColor: '#EDEFEE'}
+            ? { backgroundColor: '#EDEFEE'}
+            : { backgroundColor: '#333333'}
     ]}>
     <View style={styles.headerWrapper}>
         <Image
             style={styles.image}
-            source={require('../img/logo.png')}
-            resizeMode="cover"
+            source={require('../img/little-lemon-logo.png')}
+            resizeMode="contain"
             accessible={true}
             accessibilityLabel={'Little Lemon Logo'}
         />
-        <Text
-            style={[
-                styles.headerText,
-                colorScheme === 'light'
-                ? { backgroundColor: '#333333'}
-                : { backgroundColor: '#EDEFEE'},
-            ]}>
-            Little Lemon
-        </Text>
     </View>
+      <Text
+        style={[
+            styles.regularText
+        ]}>
+        Little Lemon - your local Mediterranean Bistro.
+      </Text>
       <Text
         style={[
             styles.regularText,
             colorScheme === 'light'
-            ? { backgroundColor: '#333333'}
-            : { backgroundColor: '#EDEFEE'}
+            ? { backgroundColor: '#EDEFEE'}
+            : { backgroundColor: '#333333'}
         ]}>
-        Little Lemon is a charming neighborhood bistro that serves simple food
-        and classic cocktails in a lively but casual environment. We would love
-        to hear more about your experience with us!
+        Subscribe to our newsletter for recipes, coupons, and more!
       </Text>
+        <Pressable onPress={() => navigation.navigate('Login')}
+            style={styles.button}>
+            <Text style={styles.buttonText}>Subscribe</Text>
+        </Pressable>
+            <Pressable onPress={() => navigation.navigate('Menu')} style={styles.button}>
+                <Text style={styles.buttonText}>View Menu</Text>
+        </Pressable>
     </ScrollView>
   );
 }
@@ -56,13 +62,16 @@ const styles = StyleSheet.create({
     headerWrapper: {
         flexDirection: 'row',
         justifyContent: 'center',
-        margin: 10,
+        marginTop: 60,
+        marginLeft: 10,
+        marginRight: 10,
+        marginBottom: 10,
     },
 
     headerText: {
         paddingRight: 10,
         paddingLeft: 20,
-        paddingTop: 30,
+        paddingTop: 20,
         paddingBottom: 10,
         fontSize: 30,
         color: '#EDEFEE',
@@ -71,15 +80,32 @@ const styles = StyleSheet.create({
 
     regularText: {
         fontSize: 24,
-        padding: 20,
+        padding: 10,
         marginVertical: 8,
-        color: '#EDEFEE',
+        color: '#333333',
         textAlign: 'center',
     },
 
     image: {
-        width: 100,
-        height: 100,
+        width: 200,
+        height: 200,
         borderRadius: 20,
     },
+
+    button: {
+        fontSize: 22,
+        padding: 10,
+        marginVertical: 8,
+        margin: 100,
+        marginBottom: 15,
+        backgroundColor: '#164E12',
+        borderWidth: 2,
+        borderRadius: 50,
+      },
+
+      buttonText: {
+        color: '#EDEFEE',
+        textAlign: 'center',
+        fontSize: 24,
+      },
   });

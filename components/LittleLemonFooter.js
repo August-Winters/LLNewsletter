@@ -15,12 +15,13 @@ export default function LittleLemonFooter() {
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#EE9972',
+      backgroundColor: '#164E12',
       marginBottom: 20,
     },
     footerText: {
+    padding: 2,
       fontSize: 18,
-      color: 'black',
+      color: '#EDEFEE',
       textAlign: 'center',
       fontStyle: 'italic',
     },

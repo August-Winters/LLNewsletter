@@ -46,6 +46,10 @@ const menuItemsToDisplay =  [
     },
 ];
 
+const Separator = () => <View style={menuStyles.separator} />;
+
+
+
 const Item = ({ name, price }) => (
   <View style={menuStyles.innerContainer}>
     <Text style={menuStyles.itemText}>{name}</Text>
@@ -68,7 +72,10 @@ const renderSectionHeader = ({ section: { title }}) => (
           sections={menuItemsToDisplay}
           keyExtractor={(item, index) => item + index}
           renderItem={renderItem}
-          renderSectionHeader={renderSectionHeader}> </SectionList>
+          renderSectionHeader={renderSectionHeader}
+          ItemSeparatorComponent={Separator}
+          >
+          </SectionList>
       </View>
     );
 };
@@ -82,20 +89,26 @@ const menuStyles = StyleSheet.create({
     paddingVertical: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    backgroundColor: '#EDEFEE',
   },
   itemText: {
-    color: '#F4CE14',
+    color: '#164E12',
     fontSize: 20,
   },
   headerStyle: {
-    backgroundColor: '#F4CE14',
+    backgroundColor: '#164E12',
   },
   sectionHeader: {
-    color: 'black',
+    color: '#EDEFEE',
+    padding: 2,
     fontSize: 26,
     flexWrap: 'wrap',
     textAlign: 'center',
   },
+  separator: {
+    backgroundColor: '#333333',
+    height: 1,
+  }
 });
 
 export default MenuItems;
