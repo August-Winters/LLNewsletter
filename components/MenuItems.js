@@ -48,8 +48,6 @@ const menuItemsToDisplay =  [
 
 const Separator = () => <View style={menuStyles.separator} />;
 
-
-
 const Item = ({ name, price }) => (
   <View style={menuStyles.innerContainer}>
     <Text style={menuStyles.itemText}>{name}</Text>

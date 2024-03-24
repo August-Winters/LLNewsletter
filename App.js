@@ -5,7 +5,7 @@ import LittleLemonHeader from './components/LittleLemonHeader';
 import LittleLemonFooter from './components/LittleLemonFooter';
 import MenuItems from './components/MenuItems';
 import WelcomeScreen from './components/WelcomeScreen';
-import LoginScreen from './components/LoginScreen';
+import SubscribeScreen from './components/SubscribeScreen';
 
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -26,7 +26,7 @@ export default function App( {navigation}) {
                             let iconName;
                             if (route.name === 'Welcome') {
                                 iconName = 'home'
-                            } else if (route.name === 'Login') {
+                            } else if (route.name === 'Subscribe') {
                                 iconName = 'person';
                             } else if (route.name === 'Menu') {
                                 iconName = 'menu';
@@ -39,7 +39,7 @@ export default function App( {navigation}) {
                     initialRouteName="Welcome">
                         <Tab.Screen name="Welcome" component={WelcomeScreen}/>
                         <Tab.Screen name="Menu" component={MenuItems}/>
-                        <Tab.Screen name="Login" component={LoginScreen}/>
+                        <Tab.Screen name="Subscribe" component={SubscribeScreen}/>
                 </Tab.Navigator>
             </View>
             <View style={styles.footerContainer}>

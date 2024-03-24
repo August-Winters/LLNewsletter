@@ -13,7 +13,7 @@ export default function LittleLemonHeader() {
 
     const styles = StyleSheet.create({
         container: {
-            backgroundColor: '#164E12',
+          backgroundColor: '#164E12',
         },
 
         headerText: {

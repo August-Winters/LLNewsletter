@@ -2,20 +2,25 @@ import React, { useState } from 'react';
 import { ScrollView, Text, StyleSheet, TextInput, Pressable, Alert, Image } from 'react-native';
 
 
-export default function LoginScreen() {
+export default function SubscribeScreen() {
 
   const [email, onChangeEmail] = useState('');
   return (
     <ScrollView style={styles.container}
         indicatorStyle="white">
        <Image
-       />
+            style={styles.image}
+            source={require('../img/little-lemon-logo-grey.png')}
+            resizeMode="contain"
+            accessible={true}
+            accessibilityLabel={'Little Lemon Logo'}
+        />
       <Text style={styles.regularText}>Subscribe to our Newsletter</Text>
         <TextInput
             style={styles.inputBox}
             value={email}
             onChangeText={onChangeEmail}
-            placeholder={'email'}
+            placeholder={'Enter your Email address'}
             keyboardType={'email-address'}
         />
         <Pressable onPress={() => Alert.alert("Thank you for subscribing!")} style={styles.button}>
@@ -28,8 +33,16 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#333333'
+    backgroundColor: '#EDEFEE',
+    paddingTop: 80,
   },
+  image: {
+    width: 200,
+    height: 200,
+    borderRadius: 20,
+    marginLeft: 100,
+    marginRight: 100,
+},
   headerText: {
     padding: 40,
     fontSize: 30,
@@ -40,7 +53,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     padding: 20,
     marginVertical: 8,
-    color: '#EDEFEE',
+    color: '#333333',
     textAlign: 'center',
   },
   inputBox: {
@@ -49,8 +62,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     fontSize: 16,
-    borderColor: '#EDEFEE',
+    borderColor: '#164E12',
     backgroundColor: '#EDEFEE',
+    borderRadius: 10,
+    borderWidth: 1.5,
   },
   newsletterInputBox: {
         height: 40,
@@ -69,12 +84,12 @@ const styles = StyleSheet.create({
     padding: 10,
     marginVertical: 8,
     margin: 100,
-    backgroundColor: '#EE9972',
+    backgroundColor: '#164E12',
     borderWidth: 2,
     borderRadius: 50,
   },
   buttonText: {
-    color: 'black',
+    color: '#EDEFEE',
     textAlign: 'center',
     fontSize: 25,
   },

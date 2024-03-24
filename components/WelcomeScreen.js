@@ -43,9 +43,9 @@ export default function WelcomeScreen( {navigation}) {
         ]}>
         Subscribe to our newsletter for recipes, coupons, and more!
       </Text>
-        <Pressable onPress={() => navigation.navigate('Login')}
+        <Pressable onPress={() => navigation.navigate('Subscribe')}
             style={styles.button}>
-            <Text style={styles.buttonText}>Subscribe</Text>
+            <Text style={styles.buttonText}>Newsletter</Text>
         </Pressable>
             <Pressable onPress={() => navigation.navigate('Menu')} style={styles.button}>
                 <Text style={styles.buttonText}>View Menu</Text>
